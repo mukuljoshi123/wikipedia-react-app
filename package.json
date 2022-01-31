@@ -58,7 +58,7 @@
 	},
 	"proxy": "https://pda-stage.socion.io",
 	"engines": {
-		"npm": ">=8.3.1",
-		"node": ">=16.13.2"
+		"npm": "8.3.1",
+		"node": "16.13.2"
 	}
 }
