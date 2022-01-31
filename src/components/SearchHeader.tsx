@@ -53,7 +53,7 @@ const SearchHeader = () => {
 			<SearchInputContainer>
 				<InputOptions
 					labelName="SEARCH ON"
-					defaultLabel={searchDefaultData.defaultSearchType}
+					defaultLabel={searchOn}
 					options={searchDefaultData.searchTypes}
 					onSelectChangeHandler={onSearchOnChangeHandler}
 				/>
@@ -65,7 +65,7 @@ const SearchHeader = () => {
 				<InputOptions
 					labelName="SORT BY"
 					onSelectChangeHandler={onSortByChangeHandler}
-					defaultLabel={searchDefaultData.defaultSortOrder}
+					defaultLabel={sortBy}
 					options={searchDefaultData.sortOrders}
 				/>
 			</SearchInputContainer>
