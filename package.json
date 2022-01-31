@@ -56,7 +56,6 @@
 		"@types/react-router-dom": "^5.3.3",
 		"@types/styled-components": "^5.1.20"
 	},
-	"proxy": "https://pda-stage.socion.io",
 	"engines": {
 		"npm": "8.3.1",
 		"node": "16.13.2"
