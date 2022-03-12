@@ -2,12 +2,12 @@ import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Card from "./UI/Card";
-import { RootState } from "../store/store";
+import { RootState } from "../redux/store";
 import { IPostData, IPostsList } from "../modules/postsData";
 import PaginatedItems from "./utils/pagination";
 
 const SearchResults = () => {
-	const postData: IPostData = useSelector((state: RootState) => state.posts);
+	const postData: IPostData = useSelector((state: any) => state.posts);
 
 	const searchDefaultData = useSelector(
 		(state: RootState) => state.searchDefault

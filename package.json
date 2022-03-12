@@ -15,6 +15,7 @@
 		"@types/yup": "^0.29.13",
 		"axios": "^0.25.0",
 		"formik": "^2.2.9",
+		"json2typescript": "^1.5.0-rc.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-paginate": "^8.1.0",
@@ -55,7 +56,7 @@
 	},
 	"devDependencies": {
 		"@types/react-router-dom": "^5.3.3",
-		"@types/styled-components": "^5.1.20"
-	},
-	"proxy": "https://pda-stage.socion.io"
+		"@types/styled-components": "^5.1.20",
+		"http-proxy-middleware": "^2.0.3"
+	}
 }

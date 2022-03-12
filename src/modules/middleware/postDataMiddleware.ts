@@ -1,4 +1,4 @@
-import { AppDispatch } from "../../store/store";
+import { AppDispatch } from "../../redux/store";
 import { postDataActions } from "../postsData";
 
 export interface IFetchPostDataArgs {

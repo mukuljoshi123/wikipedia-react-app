@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import AppIcon from "../assets/images/app-icon.png";
 import UpArrow from "../assets/images/up-arrow.png";
-import { Button } from "./UI/Button";
+import { Button } from "./atoms/Button";
 
 const Footer = () => {
 	return (

@@ -3,7 +3,7 @@ import Card from "./UI/Card";
 import User from "../assets/images/user1.png";
 import Key from "../assets/images/key.png";
 import AppIcon from "../assets/images/padlock.png";
-import { Button } from "../components/UI/Button";
+import { Button } from "./atoms/Button";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 

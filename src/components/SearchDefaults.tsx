@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { searchDefaultActions } from "../modules/searchDefaults";
-import { RootState } from "../store/store";
+import { RootState } from "../redux/store";
 import Card from "./UI/Card";
 import { InputOptionsWide } from "./UI/Input";
 

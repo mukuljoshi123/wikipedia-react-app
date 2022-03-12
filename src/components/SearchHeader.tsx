@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { Input, InputOptions } from "./UI/Input";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { Button } from "./UI/Button";
+import { RootState } from "../redux/store";
+import { Button } from "./atoms/Button";
 import { useState } from "react";
 import { fetchPostsData } from "../modules/middleware/postDataMiddleware";
 import { searchDefaultActions } from "../modules/searchDefaults";
+import { PostActions } from "../redux/posts/actions/actions";
+import { SEARCH_DEFAULTS } from "../redux/searchDefaults/actionTypes";
+import { SearchDefaultActions } from "../redux/searchDefaults/actions";
+import { SEARCH_DEFAULTS_SUB_ACTIONS_TYPE } from "../redux/searchDefaults/saga";
 
 const SearchHeader = () => {
 	const searchDefaultData = useSelector(
@@ -38,14 +42,20 @@ const SearchHeader = () => {
 
 	const OnSubmitHandler = () => {
 		dispatch(
-			fetchPostsData({
+			PostActions.getPost({
 				searchText: searchText,
 				searchOn: searchOn,
 				sortBy: sortBy,
 				resultsPerPage: searchDefaultData.defaultResultsPerPage,
 			})
 		);
-		dispatch(searchDefaultActions.updateSearchHistory(searchText));
+		dispatch(
+			SearchDefaultActions.getSearchDefault({
+				searchHistory: searchText,
+				type: SEARCH_DEFAULTS_SUB_ACTIONS_TYPE.UPDATE_SEARCH_HISTORY,
+				state: searchDefaultData,
+			})
+		);
 	};
 
 	return (
