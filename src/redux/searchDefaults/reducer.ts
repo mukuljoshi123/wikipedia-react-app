@@ -26,7 +26,6 @@ const searchDefaultReducerNew = (
 ): ISearchDefaultState => {
 	switch (action.type) {
 		case SEARCH_DEFAULTS.GET_SEARCH_DEFAULTS.SUCCESS:
-			console.log("search default reducer called");
 			const {
 				defaultSearchType,
 				defaultResultsPerPage,

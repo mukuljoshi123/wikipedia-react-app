@@ -1,6 +1,5 @@
 import { Fragment, useState } from "react";
 import styled from "styled-components";
-import { array } from "yup/lib/locale";
 
 const Pages = (props: any) => {
 	const [activePage, setActivePage] = useState(0);
@@ -15,7 +14,7 @@ const Pages = (props: any) => {
 	for (i = 1; i <= props.pageCount; i++) {
 		pages.push(
 			<Button
-				activePage={activePage == i ? true : false}
+				activePage={activePage === i ? true : false}
 				onClick={onButtonClickHandler.bind(this, i, i)}
 			>
 				{i}
@@ -26,7 +25,6 @@ const Pages = (props: any) => {
 	return <Fragment>{pages}</Fragment>;
 };
 
-const Container = styled.div``;
 
 type IButtonProps = {
 	activePage: boolean;

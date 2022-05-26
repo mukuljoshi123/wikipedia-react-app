@@ -10,9 +10,9 @@ const getAxiosInstance = (
 		baseURL: baseUrl,
 		timeout: 30000,
 		headers: {
-			"Content-Type": "application/json",
-			"Access-Control-Allow-Origin": "*",
-			offset: -330,
+			// "Content-Type": "application/json",
+			// "Access-Control-Allow-Origin": "*",
+			// offset: -330,
 		},
 	});
 	////	axiosInstance = bearerTokenReqInterceptor(axiosInstance);

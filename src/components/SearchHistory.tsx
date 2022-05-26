@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { searchDefaultActions } from "../modules/searchDefaults";
+import { SearchDefaultActions } from "../redux/searchDefaults/actions";
 import { RootState } from "../redux/store";
 import Card from "./UI/Card";
 
@@ -12,7 +12,7 @@ const SearchHistory = () => {
 	const dispatch = useDispatch();
 
 	const deleteHistoryHandler = (data: any) => {
-		dispatch(searchDefaultActions.deleteSearchHistoryData(data));
+		dispatch(SearchDefaultActions.setSearchDefault(data));
 	};
 
 	const loadHistory = searchDefaultData.searchHistory.map((history) => (
@@ -21,13 +21,11 @@ const SearchHistory = () => {
 			<Button onClick={deleteHistoryHandler.bind(this, history)}>x</Button>
 		</HistoryBlock>
 	));
-	console.log(loadHistory);
-
 	return (
 		<Card width="50%">
 			<Container>
 				<Heading>Search History</Heading>
-				{loadHistory.length == 0 ? <p>No history found!!!</p> : loadHistory}
+				{loadHistory.length === 0 ? <p>No history found!!!</p> : loadHistory}
 			</Container>
 		</Card>
 	);

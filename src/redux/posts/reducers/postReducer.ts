@@ -1,9 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { POST } from "../actions/actionTypes";
 
 export interface IPostState {
 	posts: IPostsList[];
-	loading: boolean;
+	isLoading: boolean;
 	error: boolean;
 }
 
@@ -13,9 +12,11 @@ export interface IPostsList {
 	id: number;
 }
 
+
+
 export const postsInitialState: IPostState = {
 	posts: [],
-	loading: false,
+	isLoading: false,
 	error: false,
 };
 
@@ -25,12 +26,11 @@ const postsDataReducer = (
 ): IPostState => {
 	switch (action.type) {
 		case POST.GET_POSTS.LOADING:
-			console.log("reducer called");
-			return { ...state, loading: true, error: false };
+			return { ...state, isLoading: action.payload, error: false };
 		case POST.GET_POSTS.SUCCESS:
-			return { ...state, posts: action.payload };
+			return { ...state, posts: action.payload, isLoading: false };
 		case POST.GET_POSTS.ERROR:
-			return { ...state, loading: false, error: true };
+			return { ...state, isLoading: false, error: true };
 		default:
 			return state;
 	}

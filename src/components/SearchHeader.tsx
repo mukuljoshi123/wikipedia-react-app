@@ -1,15 +1,12 @@
-import styled from "styled-components";
-import { Input, InputOptions } from "./UI/Input";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { Button } from "./atoms/Button";
 import { useState } from "react";
-import { fetchPostsData } from "../modules/middleware/postDataMiddleware";
-import { searchDefaultActions } from "../modules/searchDefaults";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { PostActions } from "../redux/posts/actions/actions";
-import { SEARCH_DEFAULTS } from "../redux/searchDefaults/actionTypes";
 import { SearchDefaultActions } from "../redux/searchDefaults/actions";
 import { SEARCH_DEFAULTS_SUB_ACTIONS_TYPE } from "../redux/searchDefaults/saga";
+import { RootState } from "../redux/store";
+import { Button } from "./atoms/button";
+import { Input, InputOptions } from "./UI/Input";
 
 const SearchHeader = () => {
 	const searchDefaultData = useSelector(
@@ -80,9 +77,8 @@ const SearchHeader = () => {
 				/>
 			</SearchInputContainer>
 			<Button
-				onSubmitHandler={OnSubmitHandler}
-				width="250px"
-				buttonText="submit"
+				onPress={OnSubmitHandler}
+				title="submit"
 				disabled={!textPresent}
 			/>
 		</Container>

@@ -1,8 +1,7 @@
-import { SEARCH_DEFAULTS } from "./actionTypes";
-import { call, put, takeLatest } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 import { IFluxStandardAction } from "../../store/interfaces";
-import { Switch } from "react-router";
 import { SearchDefaultActions } from "./actions";
+import { SEARCH_DEFAULTS } from "./actionTypes";
 import { ISearchDefaultState } from "./reducer";
 
 export const SEARCH_DEFAULTS_SUB_ACTIONS_TYPE = {
@@ -53,7 +52,6 @@ function* getSearchDefaultsWorkerSaga(
 		}
 		case SEARCH_DEFAULTS_SUB_ACTIONS_TYPE.UPDATE_SEARCH_HISTORY: {
 			const history = [...searchDefaultData.searchHistory];
-			console.log("history");
 			if (history.includes(payload.searchHistory)) {
 			} else {
 				if (history.length >= 2) {
@@ -63,7 +61,6 @@ function* getSearchDefaultsWorkerSaga(
 					history.unshift(payload.searchHistory);
 				}
 			}
-			console.log(history);
 			yield put(
 				SearchDefaultActions.setSearchDefault({
 					searchHistory: history,
@@ -87,7 +84,6 @@ function* getSearchDefaultsWorkerSaga(
 }
 
 export default function* getSearchDefaultsWatcherSaga() {
-	console.log("watcher takes data");
 	yield takeLatest(
 		SEARCH_DEFAULTS.GET_SEARCH_DEFAULTS.REQUEST,
 		getSearchDefaultsWorkerSaga

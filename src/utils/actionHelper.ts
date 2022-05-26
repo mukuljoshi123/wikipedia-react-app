@@ -16,7 +16,7 @@ const actionTypesCreator = (
 		ERROR: "",
 		REQUEST: "",
 	};
-	types.map((type: string) => {
+	types.forEach((type: string) => {
 		let completeActionType = `${prefix}/${actionType}_${type}`;
 		Object.assign(data, {
 			[type]: completeActionType,

@@ -11,7 +11,6 @@ class PostsRepository {
 		let data = await ApiClient.get(
 			postEndPoints.getPosts(body.searchText, body.sortBy)
 		);
-		console.log("data" + data);
 		return data;
 	};
 }

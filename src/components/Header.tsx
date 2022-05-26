@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AppIcon from "../assets/images/app-icon.png";
-import { ButtonPlain } from "./atoms/Button";
 
 type HeaderDataProps = {
 	justifyContent?: string;
 	color?: string;
 };
 
-const onHomeButtonClickHandler = () => {};
 
 const Header = () => {
 	return (

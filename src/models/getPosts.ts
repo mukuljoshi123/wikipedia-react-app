@@ -1,4 +1,3 @@
-import { JsonObject, JsonProperty } from "json2typescript";
 
 // @JsonObject("Post")
 // export class PostData {

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { searchDefaultActions } from "../modules/searchDefaults";
+import { SearchDefaultActions } from "../redux/searchDefaults/actions";
 import { RootState } from "../redux/store";
 import Card from "./UI/Card";
 import { InputOptionsWide } from "./UI/Input";
@@ -13,16 +13,22 @@ const SearchDefaults = () => {
 	const dispatch = useDispatch();
 
 	const defaultSeachOnHandler = (currentValue: string) => {
-		dispatch(searchDefaultActions.updateDefaultSearchType(currentValue));
+		dispatch(
+			SearchDefaultActions.setSearchDefault({ defaultSearchType: currentValue })
+		);
 	};
 
 	const defaultSortOrderHandler = (currentValue: string) => {
-		dispatch(searchDefaultActions.updateDefaultSortOrder(currentValue));
+		dispatch(
+			SearchDefaultActions.setSearchDefault({ defaultSortOrder: currentValue })
+		);
 	};
 
 	const defaultPageSizeHandler = (currentValue: string) => {
 		dispatch(
-			searchDefaultActions.updateDefaultResultsPerPage(parseInt(currentValue))
+			SearchDefaultActions.setSearchDefault({
+				defaultResultsPerPage: parseInt(currentValue),
+			})
 		);
 	};
 

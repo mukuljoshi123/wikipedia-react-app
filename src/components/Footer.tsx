@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import AppIcon from "../assets/images/app-icon.png";
 import UpArrow from "../assets/images/up-arrow.png";
-import { Button } from "./atoms/Button";
+import { Button } from "./atoms/button";
 
 const Footer = () => {
 	return (
@@ -16,7 +16,7 @@ const Footer = () => {
 					industry. Lorem Ipsum has been the industry's standard dummy text ever
 					since the 1500s.
 				</HeaderElement>
-				<Button onSubmitHandler={() => {}} buttonText="English" />
+				<Button onPress={() => {}} title="English" />
 			</ContainerData>
 		</Container>
 	);

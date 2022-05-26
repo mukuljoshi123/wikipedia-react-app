@@ -28,11 +28,6 @@ const Container = styled.div`
 	height: 100vh;
 `;
 
-const Partition = styled.div`
-	border-bottom: 2px solid #9e979767;
-	width: 40%;
-	margin: 0 auto;
-`;
 
 const Title = styled.h1`
 	padding-left: 25vw;

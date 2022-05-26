@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
-import { IPostsList } from "../../modules/postsData";
+import { IPostsList } from "../../redux/posts/reducers/postReducer";
 import Card from "../UI/Card";
 
 interface IProps {
@@ -8,10 +8,6 @@ interface IProps {
 }
 
 const DisplayPostUI = (props: IProps) => {
-	console.log("data");
-
-	console.log(props);
-
 	const displayPosts =
 		props.currentItems !== null
 			? props.currentItems.map((post) => (

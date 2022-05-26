@@ -1,5 +1,5 @@
-import { IPostsList } from "../../../modules/postsData";
 import { IFluxStandardAction } from "../../../store/interfaces";
+import { IPostsList } from "../reducers/postReducer";
 import { POST } from "./actionTypes";
 
 const getPost = (data: {

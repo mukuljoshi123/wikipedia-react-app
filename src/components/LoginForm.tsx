@@ -3,7 +3,7 @@ import Card from "./UI/Card";
 import User from "../assets/images/user1.png";
 import Key from "../assets/images/key.png";
 import AppIcon from "../assets/images/padlock.png";
-import { Button } from "./atoms/Button";
+import { Button } from "./atoms/button";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -92,14 +92,14 @@ const LoginForm = () => {
 						<Error>Password must be at least 6 characters.</Error>
 					)}
 					<Button
-						onSubmitHandler={() => {}}
+						onPress={() => {}}
 						disabled={
 							!firstVisitUserName ||
 							!firstVisitPassword ||
 							userNameError ||
 							passwordError
 						}
-						buttonText="Submit"
+						title="Submit"
 					/>
 				</form>
 			</Container>

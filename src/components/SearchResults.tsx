@@ -1,30 +1,17 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Card from "./UI/Card";
+import { IPostState } from "../redux/posts/reducers/postReducer";
 import { RootState } from "../redux/store";
-import { IPostData, IPostsList } from "../modules/postsData";
+import Card from "./UI/Card";
 import PaginatedItems from "./utils/pagination";
 
 const SearchResults = () => {
-	const postData: IPostData = useSelector((state: any) => state.posts);
+	const postData: IPostState = useSelector((state: any) => state.posts);
 
 	const searchDefaultData = useSelector(
 		(state: RootState) => state.searchDefault
 	);
-
-	// const displayPosts = postData.posts.map((post) => (
-	// 	<Card width="50%">
-	// 		<Container>
-	// 			<HeaderContainer>
-	// 				<h1>{post.title}</h1>
-	// 				<p>1 DAY AGO </p>
-	// 			</HeaderContainer>
-	// 			<p>{post.description}</p>
-	// 		</Container>
-	// 	</Card>
-	// ));
-
 	return (
 		<Fragment>
 			<Heading>Search Results</Heading>
@@ -33,7 +20,7 @@ const SearchResults = () => {
 					<Status>Loading Data</Status>
 				</Card>
 			)}
-			{!postData.isLoading && postData.posts.length == 0 && (
+			{!postData.isLoading && postData.posts.length === 0 && (
 				<Card width="50%">
 					<Status>No Data Found</Status>
 				</Card>
@@ -54,32 +41,6 @@ const Heading = styled.p`
 	font-size: 36px;
 	font-weight: 300;
 	margin: 3px;
-`;
-
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-
-	& p {
-		font-size: 13px;
-		color: #726d6d;
-	}
-`;
-
-const HeaderContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
-	& h1 {
-		font-size: 12px;
-		font-weight: 500;
-		color: black;
-		margin-bottom: 5px;
-	}
-	& p {
-		color: #868080;
-		font-size: 9.5px;
-	}
 `;
 
 const Status = styled.div`

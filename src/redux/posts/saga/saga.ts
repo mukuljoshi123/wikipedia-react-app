@@ -15,23 +15,18 @@ function* getPostWorkerSaga(
 ) {
 	try {
 		yield put(PostActions.getPostLoading(true));
-		// console.log("apic call");
-		// const { payload } = value;
-		// const response: GetPostsResponse = yield call(
-		// 	PostsRepository.getPosts,
-		// 	payload
-		// );
-		// console.log("data" + response);
-		// const postList: any[] = response.query.search;
-		// const postsData = postList.map((post) => {
-		// 	return { id: post.id, title: post.title, description: post.snippet };
-		// });
+		const { payload } = value;
 
-		yield put(
-			PostActions.getPostSuccess([
-				{ id: 234, title: "DUMMY TITLE", description: "this is a dummy data" },
-			])
+		const response: GetPostsResponse = yield call(
+			PostsRepository.getPosts,
+			payload
 		);
+		const postList: any[] = response.query.search;
+		const postsData = postList.map((post) => {
+			return { id: post.id, title: post.title, description: post.snippet };
+		});
+
+		yield put(PostActions.getPostSuccess(postsData));
 	} catch (error: any) {
 		yield put(PostActions.getPostError(error));
 	}

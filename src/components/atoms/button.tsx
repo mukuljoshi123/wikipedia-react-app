@@ -4,32 +4,41 @@ interface IButtonProps {
 	buttonText: string;
 	disabled?: boolean;
 	width?: string;
-	onSubmitHandler: () => void;
+	onPress: () => void;
 }
 
-export const Button = (props: IButtonProps) => {
-	const OnSubmitHandler = () => {
-		props.onSubmitHandler();
+interface IProps {
+	onPress?: () => void;
+	disabled?: boolean;
+	buttonColor?: number;
+	title: string;
+	buttonStyles?: React.CSSProperties;
+	textStyles?: React.CSSProperties;
+	iconStyles?: React.CSSProperties;
+}
+
+export const Button = (props: IProps) => {
+	const onPress = () => {
+		props.onPress();
 	};
 
 	return (
 		<ButtonData
-			width={props.width}
 			active={props.disabled}
 			disabled={props.disabled}
-			onClick={OnSubmitHandler}
+			onClick={onPress}
+			style={props.buttonStyles}
 		>
-			{props.buttonText}
+			{props.title}
 		</ButtonData>
 	);
 };
 
 export const ButtonPlain = (props: IButtonProps) => {
-	const OnSubmitHandler = () => {
-		props.onSubmitHandler();
+	const onPress = () => {
+		props.onPress();
 	};
-
-	return <button onClick={OnSubmitHandler}>{props.buttonText}</button>;
+	return <button onClick={onPress}>{props.buttonText}</button>;
 };
 
 type ButtonProps = {
